@@ -19,7 +19,7 @@ int server_handshake(int *to_client) {
   printf("Connecting client...\n");
   int in_pipe = open("wkp", O_RDONLY);
   read(in_pipe, s, sizeof(s));
-  printf("Message: %s\n", s);
+  printf("Enter Message: %s\n", s);
   remove("wkp");
   
   printf("Messaging client\n");
@@ -58,7 +58,7 @@ int client_handshake(int *to_server) {
   char message[HANDSHAKE_BUFFER_SIZE];
   int in_pipe = open("private", O_RDONLY);
   read(in_pipe, message, HANDSHAKE_BUFFER_SIZE);
-  printf("Message: %s\n", message);
+  printf("Enter message: %s\n", message);
   remove("private");
 
   printf("Notifying server...\n");
